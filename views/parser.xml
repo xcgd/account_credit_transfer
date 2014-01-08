@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <record id="account_credit_transfer_parser_form_view" model="ir.ui.view">
+            <field name="name">account_credit_transfer.form.view</field>
+            <field name="model">account_credit_transfer.parser</field>
+            <field name="arch" type="xml">
+                <form string="Credit Transfer Parser Config" version="7.0">
+                    <group>
+                        <field name="parser" />
+                    </group>
+                    <field name="template" />
+                    <group>
+                        <field name="template_visual" />
+                    </group>
+                </form>
+            </field>
+        </record>
+
+        <record id="account_credit_transfer_parser_tree_view" model="ir.ui.view">
+            <field name="name">account_credit_transfer.tree.view</field>
+            <field name="model">account_credit_transfer.parser</field>
+            <field name="arch" type="xml">
+                <tree string="Credit Transfer Parser Config" version="7.0">
+                    <field name="parser" />
+                    <field name="template" />
+                </tree>
+            </field>
+        </record>
+
+        <record id="account_credit_transfer_parser_action" model="ir.actions.act_window">
+            <field name="name">Credit Transfer Parser</field>
+            <field name="res_model">account_credit_transfer.parser</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem id="account_credit_transfer_parser_menu"
+                  action="account_credit_transfer_parser_action"
+                  parent="account.menu_finance_configuration"
+                  groups="base.group_system" />
+    </data>
+</openerp>
