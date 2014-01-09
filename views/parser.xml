@@ -38,6 +38,6 @@
         <menuitem id="account_credit_transfer_parser_menu"
                   action="account_credit_transfer_parser_action"
                   parent="account.menu_finance_configuration"
-                  groups="base.group_system" />
+                  groups="account.group_account_manager" />
     </data>
 </openerp>

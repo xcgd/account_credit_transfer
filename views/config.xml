@@ -35,6 +35,6 @@
         <menuitem action="account_credit_transfer_config_action"
                   id="account_credit_transfer_config_menu"
                   parent="account.menu_finance_configuration"
-                  groups="base.group_system"/>
+                  groups="account.group_account_manager"/>
     </data>
 </openerp>
