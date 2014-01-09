@@ -7,11 +7,13 @@
     "website": "http://www.openerp-experts.com",
     "category": 'Accounting',
     "description": """Account Voucher Credit Transfer Payment.
+    You need to set up some things before using it.
+    A credit transfer config link a bank with a parser
+    A credit transfer parser link a parser with a template that you can upload
     """,
 
     "depends": [
         'base',
-        'account_voucher',
     ],
 
     "data": [

@@ -1,22 +1,49 @@
 from openerp.osv import fields, osv
-from base64 import b64decode
+from openerp.tools.translate import _
+
+from base64 import b64decode, encodestring
+
+from tempfile import NamedTemporaryFile
+
+from genshi.template import TemplateLoader,\
+    TemplateNotFound, TemplateSyntaxError
 
 
 class SepaBase(object):
-    def load_template(self, file_bin):
-        template_loader = TemplateLoader(
-            [os.path.dirname(os.path.abspath(__file__))])
-        try:
-            return template_loader.load(TEMPLATE)
-        except TemplateNotFound as e:
-            raise osv.except_osv(_('Template Not Found'), e)
-        except TemplateSyntaxError as e:
-            raise osv.except_osv(_('Template Syntax Error'), e)
+    def compute(self, file_bin, data):
+        with NamedTemporaryFile(
+            suffix=".xml", prefix="genshi-template-"
+        ) as temp_file:
+            print b64decode(file_bin)
+            temp_file.write(b64decode(file_bin))
+            temp_file.flush()
+            template_loader = TemplateLoader()
+            try:
+                tpl = template_loader.load(temp_file.name)
+            except TemplateNotFound as e:
+                raise osv.except_osv(_('Template Not Found'), e)
+            except TemplateSyntaxError as e:
+                raise osv.except_osv(_('Template Syntax Error'), e)
+            content = str(tpl.generate(data=data))
+        print content
+        fname = "PAYMENT%s%s.xml" % (
+            data['batch'].name.replace(" ", ""),
+            data['date']
+        )
+        att_values = {
+            'datas': encodestring(content),
+            'datas_fname': fname,
+            'name': fname,
+            'res_id': data['batch'].id,
+            'res_model': 'account.voucher.sepa_batch',
+        }
+        return att_values
 
 
 class SepaSG(SepaBase):
-    def compute(self, file_name):
-        return super(SepaSG, self).parse(file_name)
+    def compute(self, tpl, data):
+        res = super(SepaSG, self).compute(tpl, data)
+        return res
 
 
 class credit_transfer_parser(osv.Model):
@@ -66,5 +93,5 @@ class credit_transfer_parser(osv.Model):
     }
 
     def get_parser(self, cr, uid, parser, context=None):
-        if parser.parser == 'test':
-            return SepaSG(parser.template)
+        if parser.parser == 'sepa_sg':
+            return SepaSG()
