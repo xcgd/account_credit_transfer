@@ -14,7 +14,6 @@ class SepaBase(object):
         with NamedTemporaryFile(
             suffix=".xml", prefix="genshi-template-"
         ) as temp_file:
-            print b64decode(file_bin)
             temp_file.write(b64decode(file_bin))
             temp_file.flush()
             template_loader = TemplateLoader()
@@ -25,7 +24,6 @@ class SepaBase(object):
             except TemplateSyntaxError as e:
                 raise osv.except_osv(_('Template Syntax Error'), e)
             content = str(tpl.generate(data=data))
-        print content
         fname = "PAYMENT%s%s.xml" % (
             data['batch'].name.replace(" ", ""),
             data['date']
