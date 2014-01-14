@@ -14,6 +14,7 @@
 
     "depends": [
         'base',
+        'account_streamline',
     ],
 
     "data": [
