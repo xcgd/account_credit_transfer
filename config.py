@@ -1,4 +1,5 @@
 from openerp.osv import fields, osv
+from openerp.tools.translate import _
 
 
 class credit_transfer_config(osv.Model):
@@ -12,7 +13,7 @@ class credit_transfer_config(osv.Model):
         ),
         "parser_id": fields.many2one(
             "account_credit_transfer.parser",
-            string="obj",
+            string="Parser",
             ondelete="set null",
         ),
     }
@@ -32,9 +33,7 @@ class credit_transfer_config(osv.Model):
                 _('No config found for this bank. Please set one.'),
             )
         parser = parser_osv.get_parser(
-            cr, uid, config.parser_id, context=context)
-        att_values = parser.compute(config.parser_id.template, data)
+            cr, uid, configs[0].parser_id, context=context)
+        att_values = parser.compute(configs[0].parser_id.template, data)
         ir_attachment_osv = self.pool.get('ir.attachment')
         ir_attachment_osv.create(cr, uid, att_values, context=context)
-
-

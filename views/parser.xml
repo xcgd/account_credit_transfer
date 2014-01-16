@@ -23,7 +23,6 @@
             <field name="arch" type="xml">
                 <tree string="Credit Transfer Parser Config" version="7.0">
                     <field name="parser" />
-                    <field name="template" />
                 </tree>
             </field>
         </record>
@@ -37,7 +36,7 @@
 
         <menuitem id="account_credit_transfer_parser_menu"
                   action="account_credit_transfer_parser_action"
-                  parent="account.menu_finance_configuration"
+                  parent="account.menu_configuration_misc"
                   groups="account.group_account_manager" />
     </data>
 </openerp>

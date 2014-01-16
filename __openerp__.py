@@ -18,8 +18,10 @@
     ],
 
     "data": [
+        "security/ir.model.access.csv",
         "views/config.xml",
         "views/parser.xml",
+        "views/res.bank.xml",
     ],
 
     'demo_xml': [],
