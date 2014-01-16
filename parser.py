@@ -48,7 +48,7 @@ class credit_transfer_parser(osv.Model):
     _name = "account_credit_transfer.parser"
 
     _enum_parser = [
-        ('sepa_sg', 'Sepa - Societe Generale'),
+        ('sepa_sg', 'Sepa - pain'),
     ]
 
     def _get_template_visual(self, cr, uid, ids, name, args, context=None):
