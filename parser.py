@@ -51,17 +51,6 @@ class credit_transfer_parser(osv.Model):
         ('sepa_sg', 'Sepa - Societe Generale'),
     ]
 
-    def name_get(self, cr, uid, ids, context=None):
-        brs = self.browse(cr, uid, ids, context=context)
-        res = []
-
-        for br in brs:
-            res.append(
-                (br.id,
-                 [x[1] for x in self._enum_parser if x[0] == br.parser][0]),
-            )
-        return res
-
     def _get_template_visual(self, cr, uid, ids, name, args, context=None):
         res = {}
         brs = self.browse(cr, uid, ids, context=context)
@@ -70,6 +59,7 @@ class credit_transfer_parser(osv.Model):
         return res
 
     _columns = {
+        "name": fields.char("Name", size=256, required=True),
         "parser": fields.selection(
             _enum_parser,
             string="Parser",

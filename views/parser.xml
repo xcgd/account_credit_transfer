@@ -7,6 +7,7 @@
             <field name="arch" type="xml">
                 <form string="Credit Transfer Parser Config" version="7.0">
                     <group>
+                        <field name="name" />
                         <field name="parser" />
                     </group>
                     <field name="template" />
@@ -22,6 +23,7 @@
             <field name="model">account_credit_transfer.parser</field>
             <field name="arch" type="xml">
                 <tree string="Credit Transfer Parser Config" version="7.0">
+                    <field name="name" />
                     <field name="parser" />
                 </tree>
             </field>
