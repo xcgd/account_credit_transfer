@@ -23,13 +23,13 @@ class SepaBase(object):
                 raise osv.except_osv(_('Template Not Found'), e)
             except TemplateSyntaxError as e:
                 raise osv.except_osv(_('Template Syntax Error'), e)
-            content = str(tpl.generate(data=data))
+            content = tpl.generate(data=data).render('xml')
         fname = "PAYMENT%s%s.xml" % (
             data['batch'].name.replace(" ", ""),
             data['date']
         )
         att_values = {
-            'datas': encodestring(content),
+            'datas': encodestring(content.encode('utf-8')),
             'datas_fname': fname,
             'name': fname,
             'res_id': data['batch'].id,
