@@ -2,7 +2,7 @@
 
 {
     "name": "Account Credit Transfer",
-    "version": "1.0",
+    "version": "1.0.1",
     "author": "XCG Consulting",
     "website": "http://www.openerp-experts.com",
     "category": 'Accounting',
