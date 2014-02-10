@@ -62,9 +62,14 @@ class credit_transfer_parser(osv.Model):
         "name": fields.char("Name", size=256, required=True),
         "parser": fields.selection(
             _enum_parser,
+            required=True,
             string="Parser",
         ),
-        "template": fields.binary(),
+        "template": fields.binary(
+            'Template',
+            required=True,
+            filters='*.xml',
+        ),
         "template_visual": fields.function(
             _get_template_visual,
             type="text",
