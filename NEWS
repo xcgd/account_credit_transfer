@@ -1,0 +1,11 @@
+account_credit_transfer 1.1
+
+Production release
+
+account_credit_transfer 1.0.2
+
+- parser template is now mandatory and filtered as *.xml
+
+account_credit_transfer 1.0
+
+(Initial version)
