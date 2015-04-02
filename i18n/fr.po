@@ -1,0 +1,123 @@
+# Translation of OpenERP Server.
+# This file contains the translation of the following modules:
+# * account_credit_transfer
+# Jérémie Gavrel <jeremie.gavrel@xcg-consulting.fr>, 2015.
+msgid ""
+msgstr ""
+"Project-Id-Version: OpenERP Server 7.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-04-02 13:06+0000\n"
+"PO-Revision-Date: 2015-04-02 15:58+0200\n"
+"Last-Translator: Jérémie Gavrel <jeremie.gavrel@xcg-consulting.fr>\n"
+"Language-Team: XCG\n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Generator: Virtaal 0.7.1\n"
+
+#. module: account_credit_transfer
+#: code:addons/account_credit_transfer/parser.py:23
+#, python-format
+msgid "Template Not Found"
+msgstr "Le modèle de virement n'a pas été trouvé"
+
+#. module: account_credit_transfer
+#: code:addons/account_credit_transfer/config.py:33
+#, python-format
+msgid "No config found for this bank. Please set one."
+msgstr ""
+"Aucune configuration n'a été trouvée pour cette banque. Veuillez en créer "
+"une."
+
+#. module: account_credit_transfer
+#: field:account_credit_transfer.config,parser_id:0
+#: field:account_credit_transfer.parser,parser:0
+msgid "Parser"
+msgstr "Parser"
+
+#. module: account_credit_transfer
+#: field:account_credit_transfer.parser,name:0
+msgid "Name"
+msgstr "Nom"
+
+#. module: account_credit_transfer
+#: selection:account_credit_transfer.parser,parser:0
+msgid "Sepa - pain"
+msgstr "Sepa - pain"
+
+#. module: account_credit_transfer
+#: code:addons/account_credit_transfer/config.py:38
+#, python-format
+msgid "Cannot create SEPA batch: no IBAN number."
+msgstr ""
+"Impossible de générer le lot SEPA car les coordonnées bancaires du "
+"partenaire sont absentes"
+
+#. module: account_credit_transfer
+#: view:account_credit_transfer.parser:0
+msgid "Credit Transfer Parser Config"
+msgstr "Configuration du parser de virement"
+
+#. module: account_credit_transfer
+#: view:account_credit_transfer.config:0
+msgid "Credit Transfer Config"
+msgstr "Configuration du virement"
+
+#. module: account_credit_transfer
+#: model:ir.model,name:account_credit_transfer.model_account_credit_transfer_config
+msgid "account_credit_transfer.config"
+msgstr "account_credit_transfer.config"
+
+#. module: account_credit_transfer
+#: code:addons/account_credit_transfer/config.py:32
+#, python-format
+msgid "Config Error"
+msgstr "Erreur de configuration"
+
+#. module: account_credit_transfer
+#: model:ir.actions.act_window,name:account_credit_transfer.account_credit_transfer_config_action
+#: model:ir.ui.menu,name:account_credit_transfer.account_credit_transfer_config_menu
+msgid "Credit Transfer"
+msgstr "Virement"
+
+#. module: account_credit_transfer
+#: code:addons/account_credit_transfer/parser.py:25
+#, python-format
+msgid "Template Syntax Error"
+msgstr "Erreur de syntaxe du modèle de virement"
+
+#. module: account_credit_transfer
+#: field:account_credit_transfer.parser,template:0
+#: field:account_credit_transfer.parser,template_visual:0
+msgid "Template"
+msgstr "Modèle de virement"
+
+#. module: account_credit_transfer
+#: code:addons/account_credit_transfer/config.py:37
+#, python-format
+msgid "Error"
+msgstr "Erreur"
+
+#. module: account_credit_transfer
+#: model:ir.actions.act_window,name:account_credit_transfer.res_bank_action
+#: model:ir.ui.menu,name:account_credit_transfer.res_bank_menu
+msgid "Banks"
+msgstr "Banques"
+
+#. module: account_credit_transfer
+#: model:ir.model,name:account_credit_transfer.model_account_credit_transfer_parser
+msgid "account_credit_transfer.parser"
+msgstr "account_credit_transfer.parser"
+
+#. module: account_credit_transfer
+#: field:account_credit_transfer.config,bank_id:0
+msgid "Bank"
+msgstr "Banque"
+
+#. module: account_credit_transfer
+#: model:ir.actions.act_window,name:account_credit_transfer.account_credit_transfer_parser_action
+#: model:ir.ui.menu,name:account_credit_transfer.account_credit_transfer_parser_menu
+msgid "Credit Transfer Parser"
+msgstr "Parser de virement"
