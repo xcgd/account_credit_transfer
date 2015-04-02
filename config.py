@@ -27,6 +27,12 @@ class credit_transfer_config(osv.Model):
             context=context,
         )
         configs = self.browse(cr, uid, config_id, context=context)
+        voucher_wizards = data['list_voucher_wizard']
+        if not all(vw.partner_bank_id.acc_number for vw in voucher_wizards):
+            raise osv.except_osv(
+                _(u"Error"),
+                _(u"Cannot create SEPA batch: no IBAN number.")
+            )
         if not configs:
             raise osv.except_osv(
                 _('Config Error'),
