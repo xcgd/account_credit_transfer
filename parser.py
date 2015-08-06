@@ -65,6 +65,19 @@ class credit_transfer_parser(osv.Model):
             required=True,
             string="Parser",
         ),
+        "type": fields.selection(
+            [("transfer", "Transfer"),
+             ("direct_debit", "Direct Debit")],
+            required=True,
+            string="Type",
+            help="The type of operation"
+        ),
+        "bank": fields.many2one(
+            "res.bank",
+            string="Bank",
+            help="Fill this field if the parser is specific to a"
+                 "particular bank",
+        ),
         "template": fields.binary(
             'Template',
             required=True,
@@ -83,6 +96,10 @@ class credit_transfer_parser(osv.Model):
                 ),
             },
         )
+    }
+
+    _defaults = {
+        "type": "transfer",
     }
 
     def get_parser(self, cr, uid, parser, context=None):
