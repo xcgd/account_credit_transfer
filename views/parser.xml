@@ -9,6 +9,8 @@
                     <group>
                         <field name="name" />
                         <field name="parser" />
+                        <field name="bank" />
+                        <field name="type" />
                     </group>
                     <field name="template" />
                     <group>
@@ -25,6 +27,8 @@
                 <tree string="Credit Transfer Parser Config" version="7.0">
                     <field name="name" />
                     <field name="parser" />
+                    <field name="bank" />
+                    <field name="type" />
                 </tree>
             </field>
         </record>
