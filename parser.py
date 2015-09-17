@@ -5,7 +5,7 @@ from base64 import b64decode, encodestring
 
 from tempfile import NamedTemporaryFile
 
-from genshi.template import TemplateLoader,\
+from genshi.template import TemplateLoader, \
     TemplateNotFound, TemplateSyntaxError
 
 
@@ -28,6 +28,7 @@ class SepaBase(object):
             data['batch'].name.replace(" ", ""),
             data['date']
         )
+        print data
         att_values = {
             'datas': encodestring(content.encode('utf-8')),
             'datas_fname': fname,

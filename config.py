@@ -40,6 +40,45 @@ class credit_transfer_config(osv.Model):
             )
         parser = parser_osv.get_parser(
             cr, uid, configs[0].parser_id, context=context)
+
+        print parser
+
         att_values = parser.compute(configs[0].parser_id.template, data)
+
+        print att_values
+
         ir_attachment_osv = self.pool.get('ir.attachment')
         ir_attachment_osv.create(cr, uid, att_values, context=context)
+
+#         filename = 'FormirisSEPA'
+#
+#         file_exists = self.pool[
+#             'document_attachment.type'
+#             ].search(cr, uid, [
+#                 '&', ('name', '=', filename), ('model', '=', self._name)
+#             ], context=context
+#         )
+#
+#         if not file_exists:
+#             type = self.pool[
+#                 'document_attachment.type'
+#                 ].create(cr, uid, {
+#                     'name': filename,
+#                     'model': self._name,
+#                 }, context=context
+#             )
+#         else:
+#             for file in file_exists:
+#                 type = file
+#                 break
+#
+#         cf_id = config_id[0]
+#
+#         context['res_model'] = self._name
+#         context['res_id'] = cf_id
+#
+#         print context
+#
+#         doc = self.pool['document_attachment'].create(
+#             cr, uid, att_values, context=context
+#         )
